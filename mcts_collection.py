@@ -61,7 +61,7 @@ def setup_conversation(env):
 def perform_mcts_search(Task, calling, env, conv, model_name, idx):
 
     recent_actions = []
-    mcts_search = ExtendedMCTS(calling=calling, max_len=os.environ["MAX_TOKEN_LENGTH"], model_name=model_name, env=env, idx=idx)
+    mcts_search = ExtendedMCTS(calling=calling, max_len=int(os.environ["MAX_TOKEN_LENGTH"]), model_name=model_name, env=env, idx=idx)
 
     mcts_search.search(env, conv, recent_actions)
     dir_path = f"mcts_result/{Task}/{model_name}"

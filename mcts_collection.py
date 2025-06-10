@@ -141,13 +141,12 @@ def main(Task, calling, min, max, task_num, model_name, env_server_base, task_it
     # Initialize the environment
     env = initialize_environment(Task, env_server_base)
 
-    # Load task data
-    task_inds, train_data = load_task_data(Task)
-
     # Process tasks based on the task type
     if Task in ["webshop", "textcraft"]:
+        task_inds, train_data = load_task_data(Task)
         process_task(Task, task_inds, train_data, model_name, env, calling, min, max)
     elif Task == "sciworld":
+        game_nums, task_inds = env.get_game_nums()
         process_sciworld(Task, task_inds, task_num, task_iteration, model_name, env, calling)
     else:
         print(f"Task '{Task}' is not supported.")

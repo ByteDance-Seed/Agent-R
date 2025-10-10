@@ -1,5 +1,5 @@
 mmengine==0.10.5
-vllm==0.6.3.post1
+vllm==0.11.0
 openai==1.51.2
 transformers==4.46.1
 fastchat==0.2.36
